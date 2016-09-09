@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+
+<!--1. Fixed Gender input - now it is radio buttons-->
+<!--2. Fixed Working input - now it is radio buttons-->
+<!--3. Fixed "How did you...us" input - now it is checkbutton fields-->
+<!--4. Fixed Prefered Campus input - now it is select field-->
+<!--5. Fixed Education input - now it contains not only school information
+ but also the information about other education places-->
+
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title>Assignment 4</title>
+    <link rel="stylesheet" href="Choi_Salnichenko_COMP125_Assignment_4_normalize.css">
+    <link href="Choi_Salnichenko_COMP125_Assignment_4.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="modernizr.custom.65897.js"></script>
+</head>
+
+<body>
+<header>
+    <img src="Choi_Salnichenko_COMP125_Assignment_4_cc.png" alt="" class="cenLogo">
+    <img src="Choi_Salnichenko_COMP125_Assignment_4_fiftieth-anniversary.png" alt="" class="anniv">
+    <ul>
+        <li><a href="https://my.centennialcollege.ca/cp/home/displaylogin">myCentennial</a></li>
+        <li><a href="https://www.centennialcollege.ca/about-centennial/contact-us/">Contact Us</a></li>
+        <li>
+            <a href="https://banner.centennialcollege.ca/prod/cc_bwskwpro.P_WebProspectMain?prel_code_in=PROSPECTS&button_text_in=Continue">Request
+                Information</a></li>
+        <li><a href="https://www.centennialcollege.ca/about-centennial/contact-us/campus-locations/">Location</a></li>
+    </ul>
+</header>
+<h1>Apply Online</h1>
+
+<p id="errorCheck" class="errorCheck"></p>
+
+<h2>Ready to take the next step toward achieving your goals? Please fill out
+    the application below and we will contact you .</h2>
+
+<div class="form-container" id="container">
+    <form name="registerForm" action="Choi_Salnichenko_COMP125_Assignment_4_Result_Page.html" novalidate
+          id="form-container">
+        <table>
+            <tr>
+                <td>
+                    <label for="firstName"><span>*</span> First Name </label>
+                    <input type="text" id="firstName" name="firstName" placeholder="James"/>
+
+                    <p class="error-message" id="finame"></p>
+
+                    <p class="error-message" id="finame2"></p>
+                </td>
+                <td>
+                    <label for="lastName"><span>*</span> Last Name</label>
+                    <input type="text" id="lastName" placeholder="Smith"/>
+
+                    <p class="error-message" id="laname"></p>
+
+                    <p class="error-message" id="laname2"></p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><span>*</span> Gender</label><br>
+
+                    <div class="gender-class" id="gender-class">
+                        <div class="radio-input"><label for="female" class="radio-label">Female</label>
+                            <input type="radio" name="gender" value="y" id="female" onclick="checkGenderRadio();"></div>
+                        <div class="radio-input"><label for="male" class="radio-label">Male</label>
+                            <input type="radio" name="gender" value="n" id="male" onclick="checkGenderRadio();"></div>
+                    </div>
+                    <p class="error-message" id="fm"></p>
+                </td>
+                <td>
+                    <label for="streetAddress"><span>*</span> Street Address</label>
+                    <input type="text" id="streetAddress" onfocus="clearInputAddress();"/>
+
+                    <p class="error-message" id="adress"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="country"><span>*</span> Country</label>
+                    <input type="text" id="country" placeholder="Canada" onfocus="clearInputCountry();"/>
+
+                    <p class="error-message" id="contr"></p>
+                </td>
+                <td>
+                    <label for="postalCode"><span>*</span> Postal Code</label>
+                    <input type="text" id="postalCode" onfocus="clearPostalCode();"/>
+
+                    <p class="error-message" id="code"></p>
+
+                    <p class="error-message" id="code2"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city"><span>*</span> City</label>
+                    <input type="text" id="city" placeholder="Toronto" onfocus="clearInputCity();"/>
+
+                    <p class="error-message" id="town"></p>
+                </td>
+                <td>
+                    <label for="province"><span>*</span> Province/Region</label>
+                    <input type="text" id="province" placeholder="Ontario" onfocus="clearInputProvince();"/>
+
+                    <p class="error-message" id="region"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password"><span>*</span> Password</label>
+                    <input type="password" id="password" title="8-12 characters" placeholder="abcde./123"/>
+
+                    <p class="password-rules" id="rules">Your password must include 8-12 characters <br>with numbers,
+                        dot(.) and
+                        back slash(/).</p>
+
+                    <p class="error-message" id="passwd"></p>
+
+                    <p class="error-message" id="passwd2"></p>
+
+                    <p class="error-message" id="passwd3"></p>
+
+                </td>
+                <td>
+                    <label for="password"><span>*</span> Confirm Password</label>
+                    <input type="password" id="passwordConfirm" placeholder="abcde./123"/>
+
+                    <p class="error-message" id="confPasswd"></p>
+
+                    <p id="confirmPasswd" class="error-message"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="e-mail"><span>*</span> E-mail</label>
+                    <input type="text" id="e-mail" placeholder="example@example.com"/>
+
+                    <p class="error-message" id="email"></p>
+                </td>
+                <td>
+                    <label for="phoneNumber"><span>*</span> Phone Number</label>
+                    <input type="text" id="phoneNumber" title="10 characters length"
+                           placeholder="0123456789"/>
+
+                    <p class="error-message" id="phone"></p>
+
+                    <p class="error-message" id="phone2"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><span>*</span> Level of Previous Education</label><br/>
+                    <select name="previousEducation" tabindex="40">
+                        <option value="HS">High School</option>
+                        <option value="CD">College (Diploma)</option>
+                        <option value="CAD">College (Advanced Diploma)</option>
+                        <option value="BD">Bachelor Degree</option>
+                        <option value="MD">Masters Degree</option>
+                        <option value="DD">Doctoral Degree</option>
+                    </select>
+
+                    <p class="error-message"></p>
+                </td>
+                <td>
+                    <label><span>*</span> Are you Currently Working?</label><br/>
+
+                    <div class="job-class" id="job-class">
+                        <div class="radio-input"><label for="yes" class="radio-label">Yes</label>
+                            <input type="radio" name="job" value="y" id="yes" onclick="checkWorkingRadio();"></div>
+                        <div class="radio-input"><label for="no" class="radio-label">No</label>
+                            <input type="radio" name="job" value="n" id="no" onclick="checkWorkingRadio();"></div>
+                    </div>
+                    <p class="error-message" id="job"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="preferredCampus"><span>*</span> Preferred Campus</label>
+                    </br><select name="campus" id="preferredCampus">
+                    <option value="PC">Progress Campus</option>
+                    <option value="ELS">Eglinton Learning Site</option>
+                    <option value="MS">Morningside Campus</option>
+                    <option value="PLS">Pickering Learning Site</option>
+                    <option value="SAC">Story Arts Centre</option>
+                    <option value="AC">Ashtonbee Campus</option>
+                </select>
+
+                    <p class="error-message" id="campus"></p>
+                </td>
+                <td>
+                    <label for="program"><span>*</span> Program of Interest</label>
+                    <input type="text" id="program" placeholder="Software Engineering" onfocus="clearInputProgram();"/>
+
+                    <p class="error-message" id="prog"></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="lastTd">
+                    <label>How did you hear about us?</label><br/>
+                    <!--<select name="question" tabindex="20">-->
+                    <!--<option selected="selected">Career Fair</option>-->
+                    <!--</select>-->
+                    <div class="checkbox-input"><label for="RN" class="radio-label">Radio News</label><input
+                            type="checkbox" id="RN">
+                    </div>
+                    <div class="checkbox-input"><label for="IA" class="radio-label">Internet Article</label><input
+                            type="checkbox" id="IA">
+                    </div>
+                    <div class="checkbox-input"><label for="B" class="radio-label">Brochure</label><input
+                            type="checkbox" id="B">
+                    </div>
+                    <div class="checkbox-input"><label for="A" class="radio-label">Advertisment</label><input
+                            type="checkbox" id="A">
+                    </div>
+                    <p class="error-message" id="quest"></p>
+                </td>
+            </tr>
+
+        </table>
+
+        <br/>
+
+        <div class="downDiv">
+            <button type="submit" id="submitButton" class="button" onclick="checkGenderRadio();checkWorkingRadio();">
+                Apply
+                Now
+            </button>
+            <p><span>* </span> - Required fields</p>
+        </div>
+    </form>
+</div>
+<footer>
+    <hr>
+    <p>
+        Choi_Salnichenko &copy; 2016 - Centennial College - 2nd Semester - COMP 125 - Assignment 4
+    </p>
+</footer>
+<script type="text/javascript" src="Choi_Salnichenko_COMP125_Assignment_4.js"></script>
+</body>
+</html>
